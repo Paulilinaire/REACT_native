@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, SafeAreaView, Text, TextInput, StyleSheet } from "react-native";
+import { Button, SafeAreaView, Image, TextInput, StyleSheet } from "react-native";
 import MyModal from "./Modal";
 
 
@@ -26,7 +26,7 @@ export default function ShoppingList(){
 
     return(
         <SafeAreaView style={styles.container}>
-            <Text style={styles.title}>Liste de courses</Text>
+            <Image style={styles.logo} source={require('../assets/cart.png')}/>
             <TextInput onChangeText={getInput} value={textInput} placeholder="Ajouter votre article" />
             <Button onPress={addItem} title="ajouter"></Button>
             <Button color="red" title="annuler"></Button>
@@ -45,9 +45,9 @@ const styles = StyleSheet.create({
         backgroundColor: '#ecf0f1',
         padding: 10
     },
-    title : {
-        fontSize: 32,
-        fontWeight: "800",
-        color: "black",
-    }
+    logo: {
+        justifyContent:'center',
+        height: 200,
+        width: 200,
+      },
 });
