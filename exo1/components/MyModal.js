@@ -1,7 +1,7 @@
 import { FlatList, Modal, View, Button, StyleSheet, SafeAreaView, Text } from "react-native"
 
 export default function MyModal({isVisible, closeModal, groceries}) {
-    
+
     return(
         <Modal animationType="slide" visible={isVisible}>
             <SafeAreaView style={styles.container}>

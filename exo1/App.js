@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { Button, SafeAreaView, Image, TextInput, StyleSheet, View } from "react-native";
-import MyModal from "./MyModal";
+import MyModal from "./components/MyModal";
 
-
-export default function ShoppingList(){
+export default function App(){
 
     const [textInput, setTextInput] = useState('');
     const [visibleModal, setVisibleModal] = useState(false);
@@ -27,7 +26,7 @@ export default function ShoppingList(){
 
     return(
         <SafeAreaView style={styles.container}>
-            <Image style={styles.logo} source={require('../assets/cart.png')}/>
+            <Image style={styles.logo} source={require('./assets/cart.png')}/>
             <TextInput style={styles.input} onChangeText={getInput} value={textInput} placeholder="Ajouter votre article" />
             <View style={styles.view}>
                 <Button color="royalblue" onPress={addItem} title="ajouter"></Button> 
