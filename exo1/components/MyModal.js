@@ -1,11 +1,6 @@
 import { FlatList, Modal, View, Button, StyleSheet, SafeAreaView, Text } from "react-native"
 
 export default function MyModal({isVisible, closeModal, groceries}) {
-
-    const deleteItem = () => {
-        const selectedItem = groceries.filter(item => item.id !== id);
-        setGroceries(selectedItem)
-        }
     
     return(
         <Modal animationType="slide" visible={isVisible}>
