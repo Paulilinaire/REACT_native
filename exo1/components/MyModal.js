@@ -1,11 +1,9 @@
-import { useState } from "react";
 import { FlatList, Modal, View, Button, StyleSheet, SafeAreaView, Text, Pressable } from "react-native"
 
 export default function MyModal({isVisible, closeModal, groceries}) {
 
-    const deleteItem = () => {
-        const selectedItem = groceries.filter(item => item.id !== id);
-        setGroceries(selectedItem)
+    function deleteItem (id) {
+       (prevGroceries=> prevGroceries.filter((g=>g.id !== id )))
     }
 
     return(
