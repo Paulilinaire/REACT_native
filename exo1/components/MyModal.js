@@ -1,9 +1,10 @@
 import { FlatList, Modal, View, Button, StyleSheet, SafeAreaView, Text, Pressable } from "react-native"
 
-export default function MyModal({isVisible, closeModal, groceries}) {
+export default function MyModal({isVisible, closeModal, groceries, setGroceries}) {
 
-    function deleteItem (id) {
-       (prevGroceries=> prevGroceries.filter((g=>g.id !== id )))
+    function deleteItem(id) {
+        console.log(id);
+        setGroceries(groceries.filter((item) => item.id != id))
     }
 
     return(
@@ -15,7 +16,7 @@ export default function MyModal({isVisible, closeModal, groceries}) {
                 </View>
                 <FlatList data={groceries} renderItem={(groceries) => {
                     return (
-                        <Pressable onPress={deleteItem}>
+                        <Pressable onPress={() => deleteItem}>
                             <View style={styles.coloredView}>
                                 <Text style={styles.text}>{groceries.item.text}</Text>
                             </View>
