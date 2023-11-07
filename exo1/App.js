@@ -13,7 +13,7 @@ export default function App(){
     };
 
     function addItem(){
-        setGroceries([...groceries, textInput])
+        setGroceries([...groceries, {text: textInput, id: Math.random().toString()}])
         setVisibleModal(true)
         console.log(groceries);
     };

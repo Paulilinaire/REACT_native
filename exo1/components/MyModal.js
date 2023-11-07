@@ -1,6 +1,12 @@
-import { FlatList, Modal, View, Button, StyleSheet, SafeAreaView, Text } from "react-native"
+import { useState } from "react";
+import { FlatList, Modal, View, Button, StyleSheet, SafeAreaView, Text, Pressable } from "react-native"
 
 export default function MyModal({isVisible, closeModal, groceries}) {
+
+    const deleteItem = () => {
+        const selectedItem = groceries.filter(item => item.id !== id);
+        setGroceries(selectedItem)
+    }
 
     return(
         <Modal animationType="slide" visible={isVisible}>
@@ -11,9 +17,11 @@ export default function MyModal({isVisible, closeModal, groceries}) {
                 </View>
                 <FlatList data={groceries} renderItem={(groceries) => {
                     return (
-                        <View style={styles.coloredView}>
-                            <Text style={styles.text}>{groceries.item}</Text>
-                        </View>
+                        <Pressable onPress={deleteItem}>
+                            <View style={styles.coloredView}>
+                                <Text style={styles.text}>{groceries.item.text}</Text>
+                            </View>
+                        </Pressable>
                     )
                 }} keyExtractor={(item, index) => {
                     return index
@@ -43,7 +51,7 @@ const styles = StyleSheet.create({
         justifyContent: "space-between"
     },
     view: {
-        justifyContent:"center",
+        justifyContent:"space-around",
         flexDirection: "row",
         padding: 5,
     },
