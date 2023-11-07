@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Button, SafeAreaView, Image, TextInput, StyleSheet } from "react-native";
-import MyModal from "./Modal";
+import { Button, SafeAreaView, Image, TextInput, StyleSheet, View } from "react-native";
+import MyModal from "./MyModal";
 
 
 export default function ShoppingList(){
@@ -9,8 +9,8 @@ export default function ShoppingList(){
     const [visibleModal, setVisibleModal] = useState(false);
     const [groceries, setGroceries] = useState([]);
 
-    function getInput(enterText){
-        setTextInput(enterText)
+    function getInput(enteredText){
+        setTextInput(enteredText)
     };
 
     function addItem(){
@@ -24,12 +24,14 @@ export default function ShoppingList(){
     }
 
 
+
     return(
         <SafeAreaView style={styles.container}>
             <Image style={styles.logo} source={require('../assets/cart.png')}/>
             <TextInput style={styles.input} onChangeText={getInput} value={textInput} placeholder="Ajouter votre article" />
-            <Button onPress={addItem} title="ajouter"></Button>
-            <Button color="red" title="annuler"></Button>
+            <View style={styles.view}>
+                <Button color="royalblue" onPress={addItem} title="ajouter"></Button> 
+            </View>
             <MyModal groceries={groceries} isVisible={visibleModal} closeModal={closeModal}></MyModal>
         </SafeAreaView>
 
@@ -50,11 +52,12 @@ const styles = StyleSheet.create({
         height: 200,
         width: 200,
       },
-      input: {
+    input: {
         height: 40,
+        width: 200,
         margin: 12,
         borderWidth: 1,
         borderRadius: 10,
         padding: 10,
-      },
+    },
 });
