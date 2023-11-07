@@ -3,20 +3,20 @@ import React from 'react'
 
 export default function Screen({displayValue}) {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>{displayValue}</Text>
+    <View style={styles.screenContainer}>
+      <Text style={styles.screenText}>{displayValue}</Text>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
-    container: { 
+    screenContainer: { 
         flex: 2, 
         justifyContent: 'flex-end', 
         alignItems: 'flex-end', 
         padding: 20,
     },
-    text: {
+    screenText: {
         fontSize: 48, 
         color: 'black',
     }

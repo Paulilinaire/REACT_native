@@ -1,7 +1,8 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import MyButton from './MyButton'
+import MyButton from './MyButton';
 import { useState } from 'react';
+import Screen from './Screen';
 
 
 export default function Keypad() {
@@ -54,30 +55,31 @@ export default function Keypad() {
 
   return (
     <View style={styles.buttonContainer}>
-
+        <Screen displayValue={displayValue}></Screen>
         <View style={styles.row}>
-            <MyButton onPress={() => handleNumberInput(7)}><Text style={styles.buttonText}>7</Text></MyButton>
-            <MyButton onPress={() => handleNumberInput(8)}><Text style={styles.buttonText}>8</Text></MyButton>
-            <MyButton onPress={() => handleNumberInput(9)}><Text style={styles.buttonText}>9</Text></MyButton>
-            <MyButton onPress={() => handleOperatorInput('*')}><Text style={styles.buttonText}>X</Text></MyButton>
+            <MyButton onPress={() => handleNumberInput(7)} text="7"></MyButton>
+            <MyButton onPress={() => handleNumberInput(8)} text="8"></MyButton>
+            <MyButton onPress={() => handleNumberInput(9)} text="9"></MyButton>
+            <MyButton onPress={() => handleOperatorInput('/')} text="/"></MyButton>
         </View>
         <View style={styles.row}>
-            <MyButton onPress={() => handleNumberInput(4)}><Text style={styles.buttonText}>4</Text></MyButton>
-            <MyButton onPress={() => handleNumberInput(5)}><Text style={styles.buttonText}>5</Text></MyButton>
-            <MyButton onPress={() => handleNumberInput(6)}><Text style={styles.buttonText}>6</Text></MyButton>
-            <MyButton onPress={() => handleOperatorInput('-')}><Text style={styles.buttonText}>-</Text></MyButton>
+            <MyButton onPress={() => handleNumberInput(4)} text="4"></MyButton>
+            <MyButton onPress={() => handleNumberInput(5)} text="5"></MyButton>
+            <MyButton onPress={() => handleNumberInput(6)} text="6"></MyButton>
+            <MyButton onPress={() => handleOperatorInput('*')} text="x"></MyButton>
         </View>
         <View style={styles.row}>
-            <MyButton onPress={() => handleNumberInput(1)}><Text style={styles.buttonText}>1</Text></MyButton>
-            <MyButton onPress={() => handleNumberInput(2)}><Text style={styles.buttonText}>2</Text></MyButton>
-            <MyButton onPress={() => handleNumberInput(3)}><Text style={styles.buttonText}>3</Text></MyButton>
-            <MyButton onPress={() => handleOperatorInput('+')}><Text style={styles.buttonText}>+</Text></MyButton>
+            <MyButton onPress={() => handleNumberInput(1)} text="1"></MyButton>
+            <MyButton onPress={() => handleNumberInput(2)} text="2"></MyButton>
+            <MyButton onPress={() => handleNumberInput(3)} text="3"></MyButton>
+            <MyButton onPress={() => handleOperatorInput('-')} text="-"></MyButton>
         </View>
         <View style={styles.row}>
-            <MyButton onPress={() => handleNumberInput(0)}><Text style={styles.buttonText}>0</Text></MyButton>
-            <MyButton onPress={handleClear}><Text style={styles.buttonText}>C</Text></MyButton>
-            <MyButton onPress={() => handleOperatorInput('/')}><Text style={styles.buttonText}>/</Text></MyButton>
-            <MyButton onPress={handleEqual}><Text style={styles.buttonText}>=</Text></MyButton>
+            <MyButton onPress={handleClear} text="C"></MyButton>
+            <MyButton onPress={() => handleNumberInput(0)} text="0"></MyButton>
+            <MyButton onPress={handleEqual} text="="></MyButton>
+            <MyButton onPress={() => handleOperatorInput('+')} text="+"></MyButton>
+            
         </View>
     </View>
   )
@@ -93,9 +95,5 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         margin: 10,
-    },
-    buttonText: {
-        fontSize: 34, 
-        color: 'black', 
-    }, 
+    } 
 })
