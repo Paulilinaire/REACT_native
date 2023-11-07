@@ -60,25 +60,25 @@ export default function Keypad() {
             <MyButton onPress={() => handleNumberInput(7)} text="7"></MyButton>
             <MyButton onPress={() => handleNumberInput(8)} text="8"></MyButton>
             <MyButton onPress={() => handleNumberInput(9)} text="9"></MyButton>
-            <MyButton onPress={() => handleOperatorInput('/')} text="/"></MyButton>
+            <MyButton onPress={() => handleOperatorInput('/')} text="/" isOperatorButton isOperatorTextButton></MyButton>
         </View>
         <View style={styles.row}>
             <MyButton onPress={() => handleNumberInput(4)} text="4"></MyButton>
             <MyButton onPress={() => handleNumberInput(5)} text="5"></MyButton>
             <MyButton onPress={() => handleNumberInput(6)} text="6"></MyButton>
-            <MyButton onPress={() => handleOperatorInput('*')} text="x"></MyButton>
+            <MyButton onPress={() => handleOperatorInput('*')} text="x" isOperatorButton isOperatorTextButton></MyButton>
         </View>
         <View style={styles.row}>
             <MyButton onPress={() => handleNumberInput(1)} text="1"></MyButton>
             <MyButton onPress={() => handleNumberInput(2)} text="2"></MyButton>
             <MyButton onPress={() => handleNumberInput(3)} text="3"></MyButton>
-            <MyButton onPress={() => handleOperatorInput('-')} text="-"></MyButton>
+            <MyButton onPress={() => handleOperatorInput('-')} text="-" isOperatorButton isOperatorTextButton></MyButton>
         </View>
         <View style={styles.row}>
             <MyButton onPress={handleClear} text="C"></MyButton>
             <MyButton onPress={() => handleNumberInput(0)} text="0"></MyButton>
-            <MyButton onPress={handleEqual} text="="></MyButton>
-            <MyButton onPress={() => handleOperatorInput('+')} text="+"></MyButton>
+            <MyButton onPress={handleEqual} text="=" isOperatorButton isOperatorTextButton></MyButton>
+            <MyButton onPress={() => handleOperatorInput('+')} text="+" isOperatorButton isOperatorTextButton></MyButton>
             
         </View>
     </View>

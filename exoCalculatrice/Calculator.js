@@ -16,12 +16,17 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 10,
-    backgroundColor: "lightgrey",
+    backgroundColor: "whitesmoke",
   },
   text:{
+    backgroundColor:"teal",
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
     marginTop: 20,
     color: "black",
     fontSize: 32,
-    color:"chocolate"
+    color:"white",
+    padding: 7,
+    elevation: 5,
   }
 })
