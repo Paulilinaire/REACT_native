@@ -18,6 +18,6 @@ const styles = StyleSheet.create({
     },
     screenText: {
         fontSize: 48, 
-        color: 'teal', 
+        color: 'lightseagreen',  
     }
 })
