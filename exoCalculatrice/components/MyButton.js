@@ -11,30 +11,30 @@ export default function MyButton({ onPress, text, isOperatorButton, isOperatorTe
 }
 
 const styles = StyleSheet.create({
-    button: { 
-        flex: 1, 
-        borderRadius: 50,
-        borderColor:"grey",  
-        alignItems: 'center', 
-        justifyContent: 'center', 
-        backgroundColor: 'white', 
-        elevation: 5, 
-        margin: 4, 
-        padding: 15,
-    },
-    buttonText: {
-      fontSize: 30, 
-      color: 'lightseagreen',  
+  button: { 
+      flex: 1, 
+      borderRadius: 50,
+      borderColor:"grey",  
+      alignItems: 'center', 
+      justifyContent: 'center', 
+      backgroundColor: 'white', 
+      elevation: 5, 
+      margin: 3, 
+      padding: 10,
+  },
+  buttonText: {
+    fontSize: 30, 
+    color: 'lightseagreen',  
   },
   operatorButton: {
     flex: 1, 
-    borderRadius: 50,
+    borderRadius: 20,
     borderColor:"grey",  
     alignItems: 'center', 
     justifyContent: 'center', 
     elevation: 5, 
     margin: 4, 
-    padding: 15,
+    padding: 10,
     backgroundColor: "lightseagreen",
   },
   operatorTextButton: {

@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
         padding: 20,
     },
     screenText: {
-        fontSize: 48, 
+        fontSize: 75, 
         color: 'lightseagreen',  
     }
 })
