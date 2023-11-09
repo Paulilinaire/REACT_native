@@ -3,8 +3,8 @@ import { FlatList, Modal, View, Button, StyleSheet, SafeAreaView, Text, Pressabl
 export default function MyModal({isVisible, closeModal, groceries, setGroceries}) {
 
     function deleteItem(id) {
-        console.log(id);
-        setGroceries(groceries.filter((item) => item.id != id))
+      setGroceries(groceries.filter((item) => item.id != id))
+      console.log(id);
     }
 
     return(
