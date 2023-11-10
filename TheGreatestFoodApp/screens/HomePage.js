@@ -1,24 +1,26 @@
-import { StyleSheet, Text, View, FlatList, Button, TouchableOpacity, ScrollView} from 'react-native'
-import React from 'react'
-import { SafeAreaView } from 'react-native-safe-area-context'
-import { CATEGORIES } from '../data/data' 
+import React from 'react';
+import { StyleSheet, Text, TouchableOpacity, FlatList } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { CATEGORIES } from '../data/data';
 
-export default function HomePage({navigation}) {
-
+export default function HomePage({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
-    <FlatList data={CATEGORIES} renderItem={(itemData) => {
-        return (
-                <TouchableOpacity onPress={() => navigation.navigate('MealsOverView')} style={[styles.button, {backgroundColor: itemData.item.color}]}>
-                    <Text style={styles.text}>{itemData.item.title}</Text>
-                </TouchableOpacity>
-        )
-    }} keyExtractor={(item, index) => {
-        return index
-    }}
-    />
+      <FlatList
+        numColumns={2}
+        data={CATEGORIES}
+        renderItem={(itemData) => (
+          <TouchableOpacity
+            onPress={() => navigation.navigate('MealsOverView')}
+            style={[styles.button, { backgroundColor: itemData.item.color }]}
+          >
+            <Text style={styles.text}>{itemData.item.title}</Text>
+          </TouchableOpacity>
+        )}
+        keyExtractor={(item, index) => index.toString()}
+      />
     </SafeAreaView>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -26,20 +28,19 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
         flexWrap: 'wrap',
-        justifyContent: 'space-around'
-    },
-    button: { 
-        width: 150,
-        height: 150,
-        borderRadius: 10, 
-        alignItems: 'center', 
-        justifyContent: 'center', 
-        elevation: 5, 
-        margin: 3, 
+      },
+    button: {
+        aspectRatio: 1,
+        borderRadius: 10,
+        alignItems: 'center',
+        justifyContent: 'center',
+        elevation: 5,
+        margin: 3,
         padding: 10,
-    },
+        width: '48%',
+  },
     text: {
         fontSize: 20,
         fontWeight: 'bold',
-    }
-})
+  },
+});

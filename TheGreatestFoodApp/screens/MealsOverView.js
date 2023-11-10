@@ -8,6 +8,7 @@ export default function MealsOverView({navigation}) {
     <FlatList data={MEALS} renderItem={(itemData) => {
         return (
                 <TouchableOpacity onPress={() => navigation.navigate('AboutTheMeal')} style={styles.card}>
+                    <Image source={{ uri: itemData.item.imageUrl }} style={{ resizeMode: 'cover', height: 225, width: 300, borderTopRightRadius: 20, borderTopLeftRadius: 20 }} />
                     <Text style={styles.text}>{itemData.item.title}</Text>
                     <Text>{itemData.item.duration}min</Text>
                     <Text>{itemData.item.affordability}</Text>
