@@ -9,12 +9,12 @@ export default function HomePage({ navigation }) {
       <FlatList
         numColumns={2}
         data={CATEGORIES}
-        renderItem={(itemData) => (
+        renderItem={(category) => (
           <TouchableOpacity
-            onPress={() => navigation.navigate('MealsOverView')}
-            style={[styles.button, { backgroundColor: itemData.item.color }]}
+            onPress={() => navigation.navigate('MealsOverView', {category: category.item.id})}
+            style={[styles.button, { backgroundColor: category.item.color }]}
           >
-            <Text style={styles.text}>{itemData.item.title}</Text>
+            <Text style={styles.text}>{category.item.title}</Text>
           </TouchableOpacity>
         )}
         keyExtractor={(item, index) => index.toString()}
@@ -34,13 +34,12 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         alignItems: 'center',
         justifyContent: 'center',
-        elevation: 5,
-        margin: 3,
-        padding: 10,
-        width: '48%',
+        elevation: 3,
+        margin: 10,
+        width: '45%',
   },
     text: {
-        fontSize: 20,
+        fontSize: 22,
         fontWeight: 'bold',
   },
 });
