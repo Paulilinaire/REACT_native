@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react';
 import { StyleSheet, Text, SafeAreaView, FlatList, TouchableOpacity, Image } from 'react-native';
 import { MEALS } from '../data/data';
 
 export default function MealsOverView({ navigation, route }) {
-  const categoryId = route.params.category;
+  const categoryId = route.params.categoryId;
 
   // Filter the meals based on the categoryId
   const filteredMeals = MEALS.filter((meal) => meal.categoryIds.includes(categoryId));

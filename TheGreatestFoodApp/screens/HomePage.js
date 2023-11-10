@@ -11,7 +11,7 @@ export default function HomePage({ navigation }) {
         data={CATEGORIES}
         renderItem={(category) => (
           <TouchableOpacity
-            onPress={() => navigation.navigate('MealsOverView', {category: category.item.id})}
+            onPress={() => navigation.navigate('MealsOverView', {categoryId: category.item.id})}
             style={[styles.button, { backgroundColor: category.item.color }]}
           >
             <Text style={styles.text}>{category.item.title}</Text>
