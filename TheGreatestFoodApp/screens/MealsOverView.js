@@ -1,4 +1,4 @@
-import { StyleSheet, Text, SafeAreaView, FlatList, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, SafeAreaView, FlatList, TouchableOpacity, Image} from 'react-native'
 import React from 'react'
 import { MEALS } from '../data/data' 
 
