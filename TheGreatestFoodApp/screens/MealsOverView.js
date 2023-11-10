@@ -30,13 +30,12 @@ const styles = StyleSheet.create({
     },
     card: { 
         width: 300,
-        borderRadius: 20,
         height: 300,
-        borderRadius: 10, 
+        borderRadius: 20, 
         alignItems: 'center', 
         justifyContent: 'center', 
-        elevation: 5, 
-        margin: 3, 
-        padding: 10,
+        elevation: 2, 
+        margin: 10, 
+        backgroundColor: "white"
     },
 })
