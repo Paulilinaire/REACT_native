@@ -1,26 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import { fetchPokemon } from '../redux/pokemonSlice';
+import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
 
-export default function PokemonCard(props) {
+export default function PokemonCard({ index }) {
   const [pokemon, setPokemon] = useState(null);
   const dispatch = useDispatch();
   const navigation = useNavigation();
 
   useEffect(() => {
     const fetchData = async () => {
-        try {
-            const response = await dispatch(fetchPokemon(props.index));
-            setPokemon(response.payload)
-        } catch (error) {
-            console.error("Une erreur s'est produite :", error);
-        }
+      try {
+        const response = await dispatch(fetchPokemon(index));
+        setPokemon(response.payload);
+      } catch (error) {
+        console.error("An error occurred:", error);
+      }
     };
 
     fetchData();
-}, []);
+  }, [dispatch, index, setPokemon]);
 
   // Check if pokemon is still loading or not available
   if (!pokemon) {
@@ -32,16 +31,12 @@ export default function PokemonCard(props) {
   }
 
   return (
-    <View>
-    { pokemon &&
     <TouchableOpacity
-      onPress={() => navigation.navigate('PokemonDetails')}
+      onPress={() => navigation.navigate('PokemonDetails', { pokemon })}
       style={[styles.card, { backgroundColor: '#c7a008' }]}>
-      <Image source={{uri : pokemon.sprites.front_default}}/>
-      <Text style={styles.text}>{props.pokemon.name}</Text>
+      <Image source={{ uri: pokemon.sprites.front_default }} style={styles.image} />
+      <Text style={styles.text}>{pokemon.name}</Text>
     </TouchableOpacity>
-    }
-    </View>
   );
 }
 
@@ -54,9 +49,14 @@ const styles = StyleSheet.create({
     elevation: 4,
     margin: 10,
     width: 150,
-    height: 100,
+    height: 200,
   },
   text: {
-    color: "black"
+    color: 'black',
+    marginTop: 10,
+  },
+  image: {
+    width: 120,
+    height: 120,
   },
 });

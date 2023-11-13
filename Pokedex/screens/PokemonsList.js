@@ -1,23 +1,19 @@
-import { FlatList, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import { useSelector } from 'react-redux'
-import PokemonCard from '../components/PokemonCard'
+import React from 'react';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
+import PokemonCard from '../components/PokemonCard';
+import { useSelector } from 'react-redux';
+
 
 export default function PokemonsList() {
   const pokemons = useSelector((state) => state.pokemons.pokemons);
-  console.log("pokemons:", pokemons); 
 
   return (
-    <View>
-      {pokemons.map((pokemon, key) => (
-        <PokemonCard
-          pokemon={pokemon}
-          key={key}
-          index={pokemons.indexOf(pokemon) + 1}
-        />
-      ))}
-    </View>
+    <FlatList
+      data={pokemons}
+      keyExtractor={(item, index) => index.toString()}
+      renderItem={({ item, index }) => <PokemonCard index={index + 1} />}
+    />
   );
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});
