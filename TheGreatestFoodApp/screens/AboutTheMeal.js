@@ -1,6 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, SafeAreaView, Image, View, ScrollView, FlatList } from 'react-native';
+import { StyleSheet, Text, SafeAreaView, Image, View, FlatList } from 'react-native';
 import { MEALS } from '../data/data';
+import IngredientsList from '../components/IngredientsList';
 
 export default function AboutTheMeal({ navigation, route }) {
   const mealId = route.params.mealId;
@@ -12,7 +13,7 @@ export default function AboutTheMeal({ navigation, route }) {
     <SafeAreaView style={styles.container}>
           <Image
             source={{ uri: selectedMeal.imageUrl }}
-            style={{ resizeMode: 'contain', height: "40%", width: "100%" }}
+            style={{ resizeMode: 'cover', height: "40%", width: "100%" }}
           />
           <Text style={styles.fontTitle}>{selectedMeal.title}</Text>
           <View style={styles.rowView}>
@@ -20,26 +21,7 @@ export default function AboutTheMeal({ navigation, route }) {
             <Text>{selectedMeal.affordability}</Text>
             <Text>{selectedMeal.complexity}</Text>
           </View>
-         <View style={styles.view}>
-            <Text style={styles.fontTitle}>Ingredients</Text>
-            <FlatList 
-              data={selectedMeal.ingredients} 
-              renderItem={(ingredients)=> (
-                  <View style={styles.ingredientsView}><Text style={styles.fontText} >{ingredients.item}</Text></View>
-              )}
-              keyExtractor={(item, index) => index.toString()}
-            />
-          </View>
-          <View style={styles.view}>
-          <Text style={styles.fontTitle}>Steps</Text>
-            <FlatList 
-              data={selectedMeal.steps} 
-              renderItem={(steps)=> (
-                  <View style={styles.ingredientsView}><Text style={styles.fontText} >{steps.item}</Text></View>
-              )}
-              keyExtractor={(item, index) => index.toString()}
-            />
-            </View>
+          <IngredientsList/>
     </SafeAreaView>
   );
 }
@@ -60,12 +42,6 @@ const styles = StyleSheet.create({
   fontTitle: {
     fontSize: 20,
     fontWeight: 'bold',
-  },
-  ingredientsView: {
-    backgroundColor: '#dbb7a1',
-    margin: 5,
-    borderRadius: 5,
-    alignItems: 'center',
   },
   fontText: {
     color: 'black',
