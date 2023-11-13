@@ -10,47 +10,66 @@ export default function AboutTheMeal({ navigation, route }) {
 
   return (
     <SafeAreaView style={styles.container}>
-      {selectedMeal && (
-        <>
           <Image
             source={{ uri: selectedMeal.imageUrl }}
-            style={{ resizeMode: 'cover', height: "40%", width: "100%" }}
+            style={{ resizeMode: 'contain', height: "40%", width: "100%" }}
           />
-          <Text>{selectedMeal.title}</Text>
-          <View style={styles.detailView}>
+          <Text style={styles.fontTitle}>{selectedMeal.title}</Text>
+          <View style={styles.rowView}>
             <Text>{selectedMeal.duration}min</Text>
             <Text>{selectedMeal.affordability}</Text>
             <Text>{selectedMeal.complexity}</Text>
           </View>
-          <ScrollView>
-            <Text>Ingredients</Text>
+         <View style={styles.view}>
+            <Text style={styles.fontTitle}>Ingredients</Text>
             <FlatList 
-              data={MEALS} 
-              renderItem={(meal)=> (
-                  <View style={styles.ingredientsView}><Text>{meal.item.ingredients}</Text></View>
+              data={selectedMeal.ingredients} 
+              renderItem={(ingredients)=> (
+                  <View style={styles.ingredientsView}><Text style={styles.fontText} >{ingredients.item}</Text></View>
               )}
               keyExtractor={(item, index) => index.toString()}
             />
-          </ScrollView>
-        </>
-      )}
+          </View>
+          <View style={styles.view}>
+          <Text style={styles.fontTitle}>Steps</Text>
+            <FlatList 
+              data={selectedMeal.steps} 
+              renderItem={(steps)=> (
+                  <View style={styles.ingredientsView}><Text style={styles.fontText} >{steps.item}</Text></View>
+              )}
+              keyExtractor={(item, index) => index.toString()}
+            />
+            </View>
     </SafeAreaView>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
   },
-  detailView: {
+  rowView: {
     flexDirection: 'row',
     gap: 10,
   },
+  view: {
+    alignItems: 'center',
+  },
+  fontTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
   ingredientsView: {
-    backgroundColor: 'lightsalmon',
-    margin: 10,
+    backgroundColor: '#dbb7a1',
+    margin: 5,
     borderRadius: 5,
+    alignItems: 'center',
+  },
+  fontText: {
+    color: 'black',
+    fontSize: 15,
   }
 
 });
