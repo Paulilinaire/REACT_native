@@ -1,12 +1,18 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+export default function PokemonDetails({ navigation, route }) {
+  const pokemonId = route.params.pokemonId;
+  const pokemons = route.params.pokemons;
+  console.log("pokemon detail: ", pokemons);
 
-export default function PokemonDetails() {
+  const selectedPokemon = pokemons.find((pokemon) => pokemon.id === pokemonId);
+
   return (
     <View>
-      <Text>PokemonDetails</Text>
+      {selectedPokemon && (
+        <View>
+          <Text>{selectedPokemon.name}</Text>
+          <Image source={{ uri: selectedPokemon.sprites.front_default }} />
+        </View>
+      )}
     </View>
-  )
+  );
 }
-
-const styles = StyleSheet.create({})
