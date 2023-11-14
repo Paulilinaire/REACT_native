@@ -10,7 +10,7 @@ export const fetchPokemons = createAsyncThunk(
       const data = await response.json();
 
       // Use Promise.all to fetch details for all pokemons concurrently
-      const detailsPromises = data.results.map(async (pokemon) => {
+        const detailsPromises = data.results.map(async (pokemon) => {
         const responseDetails = await fetch(pokemon.url);
         const detailsData = await responseDetails.json();
         return detailsData;
@@ -32,6 +32,7 @@ export const fetchPokemons = createAsyncThunk(
     }
   }
 );
+
 
 const pokemonSlice = createSlice({
   name: 'pokemon',

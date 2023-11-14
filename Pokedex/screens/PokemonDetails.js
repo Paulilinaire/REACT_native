@@ -1,16 +1,21 @@
+import { useEffect } from "react";
+import { View, Text, Image } from "react-native";
+import { useDispatch } from "react-redux";
+import { fetchPokemons } from "../redux/pokemonSlice";
+
 export default function PokemonDetails({ navigation, route }) {
   const pokemonId = route.params.pokemonId;
-  const pokemons = route.params.pokemons;
-  console.log("pokemon detail: ", pokemons);
+  const pokemon = route.params.pokemon;
+  const dispatch = useDispatch()
+  console.log("pokemon detail: ", pokemonId);
 
-  const selectedPokemon = pokemons.find((pokemon) => pokemon.id === pokemonId);
 
   return (
     <View>
-      {selectedPokemon && (
+      {pokemon && (
         <View>
-          <Text>{selectedPokemon.name}</Text>
-          <Image source={{ uri: selectedPokemon.sprites.front_default }} />
+          <Text>{pokemon.name}</Text>
+          <Image source={{ uri: pokemon.sprites.front_default }} />
         </View>
       )}
     </View>
